@@ -24,7 +24,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Madina Mameshova",
-  "jobTitle": "Admissions consultant · career adviser · strategy & research consultant · educator",
+  "jobTitle": "Admissions consultant · career advisor · strategy & research consultant · educator",
   "description": "I help people find and question the evidence a decision rests on — across university admissions, early-career advising, strategy & research, and teaching.",
   "url": "https://maddy-m-lab.github.io/",
   "email": "mailto:m.mameshova@gmail.com",
@@ -43,143 +43,126 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Golos+Text:wght@400;500;600;700&display=swap&subset=cyrillic-ext,cyrillic,latin-ext,latin" rel="stylesheet">
 <!--
-  Madina (Maddy) Mameshova — landing page (v4, architectural / minimalist glass)
-  Type: Source Serif 4 (display) + Inter (body). Single violet accent on a
-  neutral grey field with one subtle glow. Refined frosted-glass tiles.
-  Layout: identity band → one equal row of 4 activity tiles → about + contact.
-  Bilingual (EN/RU) + light/dark. Each activity tile opens an overlay with its
-  full detail + proof. TODO: photo on .avatar; wire CV button (data-cv).
+  Madina (Maddy) Mameshova — landing page (v6, editorial "Contents page")
+  Type: two-font system — Fraunces (display) + Golos Text (body, labels, native Cyrillic).
+  Single flat warm-cream page. Masthead → numbered services list (native <details>,
+  one-open-at-a-time via name=) → About row → accent contact band.
+  Bilingual (EN/RU) + light/dark. Hero thesis copy pending author rewrite.
 -->
 <style>
   :root{
-    --accent:#a8432e; --accent-ink:#ffffff;   /* rich red-brown, drawn from the portrait */
-    --page:#e9eaee; --fg:#191a1f; --muted:#5c5e68;
-    --glass:rgba(255,255,255,.52); --glass-2:rgba(255,255,255,.30);
-    --glass-brd:rgba(255,255,255,.72); --glass-hi:rgba(255,255,255,.9);
-    --soft:rgba(255,255,255,.42); --line:rgba(20,22,32,.11);
-    --panel:rgba(255,255,255,.76); --shadow:0 14px 44px rgba(30,32,52,.14);
+    --page:#ede8dc;              /* warm cream, single page color */
+    --ink:#1a1815;               /* warm near-black */
+    --ink-muted:#7a736a;         /* warm muted text */
+    --line:rgba(26,24,21,0.12);  /* hairline separator */
+    --accent:#a8432e;            /* existing red-brown, retained */
+    --accent-ink:#f2ede2;        /* cream text on accent block */
   }
   @media (prefers-color-scheme: dark){ :root{ color-scheme:dark;
-    --page:#101116; --fg:#eeece7; --muted:#9d9aa4;
-    --glass:rgba(34,35,44,.5); --glass-2:rgba(34,35,44,.3);
-    --glass-brd:rgba(255,255,255,.14); --glass-hi:rgba(255,255,255,.16);
-    --soft:rgba(255,255,255,.07); --line:rgba(255,255,255,.12);
-    --panel:rgba(24,25,32,.8); --shadow:0 18px 52px rgba(0,0,0,.55);
+    --page:#1a1815;
+    --ink:#ede8dc;
+    --ink-muted:#8a827a;
+    --line:rgba(237,232,220,0.14);
+    --accent:#a8432e;
+    --accent-ink:#f2ede2;
   }}
   :root[data-theme="dark"]{ color-scheme:dark;
-    --page:#101116; --fg:#eeece7; --muted:#9d9aa4;
-    --glass:rgba(34,35,44,.5); --glass-2:rgba(34,35,44,.3);
-    --glass-brd:rgba(255,255,255,.14); --glass-hi:rgba(255,255,255,.16);
-    --soft:rgba(255,255,255,.07); --line:rgba(255,255,255,.12);
-    --panel:rgba(24,25,32,.8); --shadow:0 18px 52px rgba(0,0,0,.55);
+    --page:#1a1815;
+    --ink:#ede8dc;
+    --ink-muted:#8a827a;
+    --line:rgba(237,232,220,0.14);
+    --accent:#a8432e;
+    --accent-ink:#f2ede2;
   }
   :root[data-theme="light"]{ color-scheme:light;
-    --page:#e9eaee; --fg:#191a1f; --muted:#5c5e68;
-    --glass:rgba(255,255,255,.52); --glass-2:rgba(255,255,255,.30);
-    --glass-brd:rgba(255,255,255,.72); --glass-hi:rgba(255,255,255,.9);
-    --soft:rgba(255,255,255,.42); --line:rgba(20,22,32,.11);
-    --panel:rgba(255,255,255,.76); --shadow:0 14px 44px rgba(30,32,52,.14);
+    --page:#ede8dc;
+    --ink:#1a1815;
+    --ink-muted:#7a736a;
+    --line:rgba(26,24,21,0.12);
+    --accent:#a8432e;
+    --accent-ink:#f2ede2;
   }
 
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0; background:var(--page); color:var(--fg);
-    font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    -webkit-font-smoothing:antialiased; letter-spacing:-0.01em}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family:"Golos Text", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:0;
+  }
   a{color:inherit}
   html[data-lang="en"] .ru{display:none}
   html[data-lang="ru"] .en{display:none}
-  .serif{font-family:"Source Serif 4",Georgia,serif}
 
-  /* neutral grey field + single subtle violet glow */
-  .bg{position:fixed; inset:0; z-index:-1;
-    background:
-      radial-gradient(58vmax 58vmax at 16% 10%, color-mix(in srgb,var(--accent) 22%, transparent), transparent 60%),
-      radial-gradient(46vmax 46vmax at 90% 94%, color-mix(in srgb,var(--accent) 12%, transparent), transparent 62%),
-      var(--page)}
-
-  .wrap{max-width:1200px; margin:0 auto; padding:20px; min-height:100%}
-  .bento{display:grid; gap:14px; grid-template-columns:repeat(4,1fr);
-    grid-template-areas:
-      "identity identity identity identity"
-      "svclabel svclabel svclabel svclabel"
-      "admissions early strategy teaching"
-      "about about contact contact"}
-  @media(min-width:980px){
-    .bento{grid-template-rows:auto auto minmax(210px,auto) minmax(150px,auto)}
+  /* page container — single editorial column */
+  .page{
+    max-width:900px;
+    margin:0 auto;
+    padding:40px 24px 80px;
+    display:flex;
+    flex-direction:column;
+    gap:64px;
   }
-  #svc-label{grid-area:svclabel}
-  #identity{grid-area:identity}
-  #t-admissions{grid-area:admissions}
-  #t-early{grid-area:early}
-  #t-strategy{grid-area:strategy}
-  #t-teaching{grid-area:teaching}
-  #t-about{grid-area:about}
-  #t-contact{grid-area:contact}
-  @media(max-width:900px){
-    .bento{grid-template-columns:1fr; grid-template-rows:none; grid-template-areas:
-      "identity" "svclabel" "admissions" "early" "strategy" "teaching" "about" "contact"}
+  @media(max-width:640px){
+    .page{padding:24px 20px 60px; gap:48px;}
   }
 
-  /* services section label */
-  #svc-label{display:flex; align-items:center; gap:10px; padding:6px 4px 0}
-  #svc-label .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); flex:0 0 auto}
-  #svc-label .t{font-size:.72rem; text-transform:uppercase; letter-spacing:.17em; color:var(--muted); font-weight:500}
+  /* masthead — just typography on the page, no frame */
+  .masthead{display:flex; flex-direction:column;}
+  .masthead-top{display:flex; align-items:center; gap:28px; flex-wrap:wrap; margin-bottom:28px;}
+  .avatar{width:128px; height:128px; border-radius:2px; flex:0 0 auto; overflow:hidden; border:1px solid var(--line);}
+  .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+  .masthead-name{min-width:0;}
+  #identity h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 96;
+    font-weight:400;
+    font-size:3.5rem;
+    line-height:1.02;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+  .id-thread{
+    font-family:"Golos Text", sans-serif;
+    font-size:1.1rem;
+    line-height:1.55;
+    margin:0 0 14px;
+    max-width:60ch;
+  }
+  .id-hook{
+    font-family:"Golos Text", sans-serif;
+    font-size:0.95rem;
+    color:var(--ink-muted);
+    line-height:1.55;
+    margin:0 0 20px;
+    max-width:62ch;
+  }
+  .id-loc{
+    font-family:"Golos Text", sans-serif;
+    font-size:0.85rem;
+    color:var(--ink-muted);
+    margin:0 0 24px;
+  }
+  .controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
 
-  /* tile eyebrow + chip caption */
-  .eyebrow{font-size:.63rem; text-transform:uppercase; letter-spacing:.15em; color:var(--muted); font-weight:500; margin:0 0 8px}
-  .foot-l{display:flex; flex-direction:column; gap:5px; min-width:0}
-  .cap{font-size:.58rem; text-transform:uppercase; letter-spacing:.11em; color:var(--muted); font-weight:500; margin:0; opacity:.85}
-
-  /* glass tile */
-  .tile{position:relative; overflow:hidden; border-radius:18px; padding:20px;
-    display:flex; flex-direction:column; min-height:132px;
-    background:linear-gradient(155deg,var(--glass),var(--glass-2));
-    -webkit-backdrop-filter:blur(20px) saturate(150%); backdrop-filter:blur(20px) saturate(150%);
-    border:1px solid var(--glass-brd);
-    box-shadow:var(--shadow), inset 0 1px 0 var(--glass-hi)}
-  .tile::after{content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-    background:linear-gradient(155deg,rgba(255,255,255,.20),transparent 42%); mix-blend-mode:screen}
-  .tile > *{position:relative; z-index:1}
-  .tile.act{cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
-  .tile.act:hover{transform:translateY(-2px);
-    border-color:color-mix(in srgb,var(--accent) 50%, var(--glass-brd));
-    box-shadow:0 18px 48px -18px color-mix(in srgb,var(--accent) 55%, transparent), inset 0 1px 0 var(--glass-hi)}
-  .tile.act:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
-
-  .tt{font-size:1.16rem; font-weight:400; margin:0; line-height:1.18; letter-spacing:-0.012em}
-  .teaser{color:var(--muted); font-size:.84rem; margin:9px 0 0; line-height:1.5}
-  .foot{margin-top:auto; padding-top:16px; display:flex; flex-direction:column; gap:8px}
-  .chips{display:flex; flex-wrap:wrap; gap:6px}
-  .chip{font-size:.68rem; color:var(--fg); background:var(--soft); border:1px solid var(--glass-brd);
-    border-radius:999px; padding:3px 9px; letter-spacing:0}
-  .cue-row{display:flex; justify-content:flex-end; margin-top:2px; padding-top:11px; border-top:1px solid var(--line)}
-  .cue{font-size:.76rem; font-weight:500; color:var(--accent); white-space:nowrap; letter-spacing:.01em}
-
-  /* identity band */
-  #identity{flex-direction:row; align-items:center; gap:30px; flex-wrap:wrap}
-  .id-left{flex:0 0 auto; min-width:240px; max-width:46%; display:flex; flex-direction:column; gap:14px}
-  .id-namewrap{display:flex; gap:15px; align-items:center}
-  .avatar{width:72px; height:72px; border-radius:16px; flex:0 0 auto; overflow:hidden;
-    border:1px solid var(--glass-brd); box-shadow:var(--shadow)}
-  .avatar img{width:100%; height:100%; object-fit:cover; display:block}
-  #identity h1{font-family:"Source Serif 4",serif; font-weight:400; font-size:1.85rem; line-height:1.02;
-    margin:0; letter-spacing:-0.015em}
-  .id-loc{color:var(--muted); font-size:.82rem; margin-top:5px}
-  .id-right{flex:1; min-width:280px}
-  .id-thread{font-size:1rem; line-height:1.42; margin:0; font-weight:400; max-width:52ch}
-  .id-hook{color:var(--muted); font-size:.86rem; line-height:1.5; margin:11px 0 0; max-width:56ch}
-  .controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
-  .seg{display:inline-flex; border:1px solid var(--glass-brd); border-radius:999px; overflow:hidden; background:var(--soft);
-    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px)}
-  .seg button{background:none; border:0; color:var(--muted); font:inherit; font-size:.76rem; font-weight:500; padding:5px 12px; cursor:pointer}
-  .seg button[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink)}
-  .icon-btn{background:var(--soft); border:1px solid var(--glass-brd); border-radius:50%; color:var(--muted);
-    width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; padding:0; cursor:pointer;
-    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); transition:color .15s ease, border-color .15s ease}
-  .icon-btn:hover{color:var(--fg); border-color:color-mix(in srgb,var(--accent) 45%, var(--glass-brd))}
+  /* controls — square editorial */
+  .seg{display:inline-flex; border:1px solid var(--line); border-radius:0; overflow:hidden; background:transparent;}
+  .seg button{
+    background:none; border:0; color:var(--ink-muted);
+    font-family:"Golos Text", sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.08em;
+    padding:6px 12px; cursor:pointer;
+  }
+  .seg button[aria-pressed="true"]{background:var(--ink); color:var(--page);}
+  .icon-btn{
+    background:transparent; border:1px solid var(--line); border-radius:0; color:var(--ink-muted);
+    width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center; padding:0; cursor:pointer;
+  }
+  .icon-btn:hover{color:var(--ink); border-color:var(--ink);}
   .icon-btn .i{width:16px; height:16px}
   /* sun/moon swap by theme: light → show moon (go dark), dark → show sun (go light) */
   .icon-btn .i-sun{display:none}
@@ -190,326 +173,561 @@
   :root[data-theme="dark"] .icon-btn .i-sun{display:block}
   :root[data-theme="dark"] .icon-btn .i-moon{display:none}
 
-  #t-contact .links{display:flex; flex-direction:column; gap:7px; margin-top:13px}
-  #t-contact .links a{font-size:.9rem; text-decoration:none; color:var(--fg); border-bottom:1px solid transparent; width:max-content}
-  #t-contact .links a:hover{border-color:var(--accent); color:var(--accent)}
+  /* section heading — small italic serif subhead */
+  .section-heading{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 36;
+    font-size:1.15rem;
+    font-weight:400;
+    font-style:italic;
+    color:var(--ink-muted);
+    letter-spacing:0;
+    margin:0 0 24px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
 
-  /* dialog */
-  dialog{border:0; padding:0; background:transparent; max-width:min(660px,94vw); width:100%; color:var(--fg)}
-  dialog::backdrop{background:rgba(8,9,14,.5); -webkit-backdrop-filter:blur(5px); backdrop-filter:blur(5px)}
-  .panel{border-radius:22px; padding:28px; max-height:88vh; overflow:auto;
-    background:linear-gradient(160deg,var(--panel),color-mix(in srgb,var(--panel) 80%, transparent));
-    -webkit-backdrop-filter:blur(30px) saturate(160%); backdrop-filter:blur(30px) saturate(160%);
-    border:1px solid var(--glass-brd); box-shadow:0 40px 90px -24px rgba(0,0,0,.5), inset 0 1px 0 var(--glass-hi)}
-  .panel .x{position:sticky; top:-4px; float:right; margin:-6px -6px 0 0; background:var(--soft);
-    border:1px solid var(--glass-brd); border-radius:50%; width:32px; height:32px; font-size:.95rem; line-height:1;
-    color:var(--muted); cursor:pointer}
-  .panel h3.dt{font-family:"Source Serif 4",serif; font-size:1.4rem; font-weight:400; margin:0 0 4px; letter-spacing:-0.01em; padding-right:30px}
-  .panel .sub{color:var(--muted); margin:0 0 18px; font-size:.94rem}
-  .panel h4{font-size:.7rem; text-transform:uppercase; letter-spacing:.13em; color:var(--muted); margin:22px 0 8px; font-weight:600}
-  .panel p{line-height:1.58; margin:0 0 12px; font-size:.94rem}
-  .panel .lead{font-size:.98rem}
-  ul.arrow{list-style:none; padding:0; margin:0 0 6px}
-  ul.arrow li{padding:7px 0 7px 22px; position:relative; border-bottom:1px solid var(--line); line-height:1.45; font-size:.92rem}
-  ul.arrow li::before{content:"→"; position:absolute; left:0; color:var(--accent)}
+  /* services list */
+  .services{display:flex; flex-direction:column;}
+  .row{border-bottom:1px solid var(--line);}
+  .row:first-of-type{border-top:1px solid var(--line);}
+
+  .row summary{
+    list-style:none;
+    cursor:pointer;
+    display:grid;
+    grid-template-columns:64px 1fr auto;
+    gap:24px;
+    align-items:baseline;
+    padding:28px 8px;
+    transition:background 0.15s ease;
+  }
+  .row summary::-webkit-details-marker{display:none;}
+  .row summary::marker{content:"";}
+  .row summary:hover{background:color-mix(in srgb, var(--accent) 3%, transparent);}
+  .row summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px;}
+
+  .row-num{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 48;
+    font-size:1.8rem;
+    font-weight:400;
+    color:var(--ink-muted);
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .row-body{display:flex; flex-direction:column; gap:8px; min-width:0;}
+  .row-title{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 36;
+    font-size:1.5rem;
+    font-weight:400;
+    line-height:1.2;
+    letter-spacing:-0.015em;
+    color:var(--ink);
+  }
+  .row-teaser{
+    font-family:"Golos Text", sans-serif;
+    font-size:0.95rem;
+    line-height:1.55;
+    color:var(--ink-muted);
+    max-width:60ch;
+  }
+
+  .row-indicator{width:14px; height:14px; position:relative; align-self:center; flex-shrink:0;}
+  .row-indicator::before,
+  .row-indicator::after{
+    content:""; position:absolute; background:var(--ink-muted);
+    transition:transform 0.2s ease, opacity 0.2s ease;
+  }
+  .row-indicator::before{top:6px; left:0; width:14px; height:2px;}
+  .row-indicator::after{top:0; left:6px; width:2px; height:14px;}
+  .row[open] .row-indicator::after{transform:scaleY(0); opacity:0;}
+  .row[open] .row-indicator::before{background:var(--accent);}
+  .row[open] .row-num,
+  .row[open] .row-title{color:var(--accent);}
+
+  /* expanded content — left offset aligns with the title column */
+  .row-content{
+    padding:8px 8px 40px 96px;
+    max-width:68ch;
+  }
+
+  /* about row — no number */
+  .row--about summary{grid-template-columns:1fr auto; gap:24px;}
+  .row--about .row-num{display:none;}
+  .row--about .row-content{padding-left:8px;}
+
+  @media(max-width:640px){
+    .row summary{grid-template-columns:40px 1fr auto; gap:16px; padding:20px 4px;}
+    .row-num{font-size:1.4rem;}
+    .row-title{font-size:1.2rem;}
+    .row-content{padding:8px 4px 32px;}
+    .row--about summary{grid-template-columns:1fr auto;}
+  }
+
+  /* ---- content styles inside expanded rows ---- */
+  .row-content .lead{font-size:1rem;}
+  .row-content h4{
+    font-family:"Golos Text", sans-serif;
+    font-size:0.95rem;
+    font-weight:600;
+    text-transform:none;
+    letter-spacing:0;
+    color:var(--ink);
+    margin:32px 0 12px;
+  }
+  .row-content p{
+    font-family:"Golos Text", sans-serif;
+    font-size:0.95rem;
+    line-height:1.6;
+    margin:0 0 14px;
+  }
+
+  ul.arrow{list-style:none; padding:0; margin:0 0 8px}
+  ul.arrow li{
+    padding:10px 0 10px 16px; position:relative; border-bottom:1px solid var(--line);
+    line-height:1.5; font-size:0.94rem;
+  }
+  ul.arrow li::before{content:"·"; position:absolute; left:0; color:var(--ink-muted); font-weight:700;}
   ul.arrow li:last-child{border-bottom:0}
+
   ol.steps{counter-reset:s; list-style:none; padding:0; margin:0 0 8px}
-  ol.steps li{position:relative; padding:6px 0 6px 34px; margin-bottom:4px; line-height:1.45; font-size:.92rem}
-  ol.steps li::before{counter-increment:s; content:counter(s); position:absolute; left:0; top:5px;
-    width:22px; height:22px; border-radius:50%; background:color-mix(in srgb,var(--accent) 18%,transparent);
-    color:var(--accent); font-size:.74rem; font-weight:600; display:grid; place-items:center}
-  .callout{background:var(--soft); border:1px solid var(--glass-brd); border-radius:12px; padding:12px 14px; font-size:.9rem; line-height:1.5; margin:0 0 14px}
-  .callout b{color:var(--fg)}
-  .price{width:100%; border-collapse:collapse; margin:6px 0 10px; font-size:.9rem}
+  ol.steps li{position:relative; padding:6px 0 6px 34px; margin-bottom:4px; line-height:1.5; font-size:.94rem}
+  ol.steps li::before{counter-increment:s; content:counter(s); position:absolute; left:0; top:4px;
+    width:22px; height:22px; border-radius:2px; background:color-mix(in srgb, var(--ink) 8%, transparent);
+    color:var(--ink); font-family:"Golos Text", sans-serif; font-size:.74rem; font-weight:600; display:grid; place-items:center}
+
+  .callout{background:color-mix(in srgb, var(--ink) 4%, var(--page)); border:1px solid var(--line); border-radius:4px; padding:12px 14px; font-size:.92rem; line-height:1.55; margin:0 0 14px}
+  .callout b{color:var(--ink)}
+
+  .price{width:100%; border-collapse:collapse; margin:6px 0 10px; font-size:.92rem}
   .price td{padding:9px 6px; border-bottom:1px solid var(--line); vertical-align:top}
-  .price td.amt{text-align:right; white-space:nowrap; font-weight:500; font-variant-numeric:tabular-nums}
-  .price td.len{white-space:nowrap; color:var(--muted); font-variant-numeric:tabular-nums; padding-right:14px}
+  .price td.amt{text-align:right; white-space:nowrap; font-size:.88rem; font-weight:500; font-variant-numeric:tabular-nums}
+  .price td.len{white-space:nowrap; color:var(--ink-muted); font-variant-numeric:tabular-nums; padding-right:14px}
+  .price td.amt .usd{color:var(--ink-muted); font-weight:400}
+
   .cases{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:4px 0 8px}
   @media(max-width:520px){.cases{grid-template-columns:1fr}}
-  .case{border:1px solid var(--glass-brd); border-radius:11px; padding:10px 12px; font-size:.88rem; line-height:1.35; background:var(--soft)}
-  .case .yr{font-size:.7rem; color:var(--muted); font-weight:600; font-variant-numeric:tabular-nums}
+  .case{border:1px solid var(--line); border-radius:4px; padding:11px 13px; background:color-mix(in srgb, var(--ink) 3%, var(--page));
+    display:flex; flex-direction:column; gap:4px}
+  .case .yr{font-size:.72rem; color:var(--ink-muted); font-variant-numeric:tabular-nums}
+  .case .inst{font-weight:500; color:var(--ink); font-size:.94rem; line-height:1.25}
+  .case .meta{font-size:.8rem; color:var(--ink-muted); line-height:1.35}
+  .case .res{font-size:.84rem; color:var(--ink); line-height:1.35; padding-left:16px; position:relative}
+  .case .res::before{content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:700; font-size:.78rem}
+  /* testimonial screenshot — RU only; the matching case spans full width so the shot stays readable */
+  .shot{display:none; margin-top:10px}
+  html[data-lang="ru"] .shot{display:block}
+  html[data-lang="ru"] .case.tcase{grid-column:1 / -1}
+  .shot img{display:block; width:100%; max-width:560px; border-radius:4px; border:1px solid var(--line); background:#fff}
+  .shot .rcap{font-size:.72rem; color:var(--ink-muted); margin:0 0 5px; letter-spacing:.04em}
+
   .pubs{list-style:none; padding:0; margin:0}
   .pubs li{padding:11px 0; border-bottom:1px solid var(--line)}
   .pubs li:last-child{border-bottom:0}
   .pubs .p-t{font-weight:500}
-  .pubs .p-d{color:var(--muted); font-size:.88rem; margin-top:2px}
+  .pubs .p-d{color:var(--ink-muted); font-size:.9rem; margin-top:2px}
   .pubs a.p-t{text-decoration:none; border-bottom:1px solid var(--accent)}
+
   .tl{list-style:none; padding:0; margin:0 0 6px}
-  .tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line); font-size:.92rem}
+  .tl li{display:flex; gap:14px; padding:9px 0; border-bottom:1px solid var(--line); font-size:.94rem}
   .tl li:last-child{border-bottom:0}
-  .tl .yr{flex:0 0 104px; color:var(--muted); font-variant-numeric:tabular-nums; font-size:.83rem}
-  .cta{display:inline-flex; align-items:center; gap:6px; margin-top:16px; text-decoration:none;
-    background:var(--accent); color:var(--accent-ink); font-weight:500; font-size:.9rem; padding:10px 17px; border-radius:11px; border:0; cursor:pointer;
-    box-shadow:0 8px 20px -8px var(--accent), inset 0 1px 0 rgba(255,255,255,.35)}
-  .cta:hover{filter:brightness(1.07)}
+  .tl .yr{flex:0 0 104px; color:var(--ink-muted); font-variant-numeric:tabular-nums; font-size:.8rem}
+  .tl .det, ul.arrow .det{display:block; color:var(--ink-muted); font-weight:400; font-size:.85rem; line-height:1.45; margin-top:4px}
+
+  .cta{
+    display:inline-flex; align-items:center; gap:8px; margin-top:24px; text-decoration:none;
+    background:var(--accent); color:var(--accent-ink);
+    font-family:"Golos Text", sans-serif; font-weight:500; font-size:0.92rem;
+    padding:12px 20px; border-radius:0; border:0; cursor:pointer; box-shadow:none;
+  }
+  .cta:hover{background:color-mix(in srgb, var(--accent) 88%, black);}
+
   .dlg-links{display:flex; gap:16px; flex-wrap:wrap; margin-top:14px}
   .dlg-links a{font-weight:500; text-decoration:none; border-bottom:1px solid var(--accent)}
-  .muted-note{font-size:.84rem; color:var(--muted); margin-top:8px}
+  .muted-note{font-size:.9rem; color:var(--ink-muted); margin-top:8px}
+
+  /* contact — accent color band, always visible */
+  .contact{background:var(--accent); color:var(--accent-ink); padding:48px 40px; margin-top:16px;}
+  @media(max-width:640px){.contact{padding:32px 24px;}}
+  .contact-title{
+    font-family:"Fraunces", Georgia, serif;
+    font-variation-settings:"opsz" 48;
+    font-size:2rem; font-weight:400; line-height:1.1; letter-spacing:-0.015em;
+    color:var(--accent-ink); margin:0 0 16px;
+  }
+  .contact-lead{
+    font-family:"Golos Text", sans-serif;
+    font-size:1rem; line-height:1.55; color:var(--accent-ink); opacity:0.9; max-width:58ch; margin:0 0 24px;
+  }
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-family:"Golos Text", sans-serif; font-size:1rem;}
+  .contact-links a{
+    color:var(--accent-ink); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; width:max-content;
+  }
+  .contact-links a:hover{text-decoration-thickness:2px;}
+
+  @media(max-width:640px){
+    .avatar{width:96px; height:96px;}
+    #identity h1{font-size:2.4rem;}
+  }
 </style>
 </head>
 <body>
-<div class="bg" aria-hidden="true"></div>
-<div class="wrap">
-  <main class="bento">
+<main class="page">
 
-    <!-- IDENTITY BAND -->
-    <section class="tile" id="identity">
-      <div class="id-left">
-        <div class="id-namewrap">
-          <div class="avatar"><img src="avatar.jpg" alt="Portrait of Madina Mameshova" width="72" height="72"></div>
-          <div>
-            <h1>Madina Mameshova</h1>
-            <div class="id-loc">
-              <span class="en">Almaty, Kazakhstan · working in English and Russian</span>
-              <span class="ru">Алматы, Казахстан · работаю на английском и русском языках</span>
-            </div>
-          </div>
-        </div>
-        <div class="controls">
-          <span class="seg" role="group" aria-label="Language">
-            <button data-lang-set="en" aria-pressed="true">EN</button>
-            <button data-lang-set="ru" aria-pressed="false">RU</button>
-          </span>
-          <button class="icon-btn" id="themeBtn" aria-label="Toggle light or dark theme" title="Toggle theme">
-          <svg class="i i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          <svg class="i i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-        </button>
-        </div>
+  <!-- MASTHEAD (identity band) -->
+  <section class="masthead" id="identity">
+    <div class="masthead-top">
+      <div class="avatar"><img src="avatar.jpg" alt="Portrait of Madina Mameshova" width="128" height="128"></div>
+      <div class="masthead-name">
+        <h1>Madina Mameshova</h1>
       </div>
-      <div class="id-right">
-        <p class="id-thread">
-          <span class="en">Across different kinds of work, I do one thing: help people find and question the evidence a decision rests on — and leave the decision itself to them.</span>
-          <span class="ru">В разных моих проектах я делаю одно и то же: помогаю найти и перепроверить факты и информацию, на которых строится решение – а сам выбор оставляю за вами.</span>
-        </p>
-        <p class="id-hook">
-          <span class="en">I studied in the US and built my career across the US, Russia and Kazakhstan — and I bring that wide-angle, whole-picture view to every case that reaches me.</span>
-          <span class="ru">Я училась в США, а карьеру строила в Штатах, России и Казахстане – благодаря этому я смотрю на задачи объемно, видя картину целиком.</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- SERVICES SECTION LABEL -->
-    <div id="svc-label">
-      <span class="dot" aria-hidden="true"></span>
-      <span class="t"><span class="en">Ways to work with me</span><span class="ru">Форматы взаимодействия</span></span>
     </div>
+    <p class="id-thread">
+      <span class="en">Across different kinds of work, I do one thing: help people find and question the evidence a decision rests on — and leave the decision itself to them.</span>
+      <span class="ru">В самых разных проектах я делаю одно и то же: помогаю найти и перепроверить факты и данные, на которых строится решение – а сам выбор оставляю за вами.</span>
+    </p>
+    <p class="id-hook">
+      <span class="en">I studied in the US and built my career across the US, Russia and Kazakhstan — and I bring that wide-angle, whole-picture view to every case that reaches me.</span>
+      <span class="ru">Я училась в США, а карьеру строила в Штатах, России и Казахстане – благодаря этому я смотрю на задачи объемно, видя картину целиком.</span>
+    </p>
+    <p class="id-loc">
+      <span class="en">Almaty, Kazakhstan · working in English and Russian</span>
+      <span class="ru">Алматы, Казахстан · работаю на английском и русском языках</span>
+    </p>
+    <div class="controls">
+      <span class="seg" role="group" aria-label="Language">
+        <button data-lang-set="en" aria-pressed="true">EN</button>
+        <button data-lang-set="ru" aria-pressed="false">RU</button>
+      </span>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle light or dark theme" title="Toggle theme">
+      <svg class="i i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="i i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button>
+    </div>
+  </section>
 
-    <!-- ACTIVITY TILES (one equal row) -->
-    <article class="tile act" id="t-admissions" tabindex="0" role="button" aria-haspopup="dialog" data-dialog="dlg-admissions">
-      <h2 class="tt serif"><span class="en">Getting into a university abroad</span><span class="ru">Поступление в зарубежные вузы</span></h2>
-      <p class="teaser"><span class="en">Bachelor's, master's and MBA abroad — from strategy to choosing an offer. Advising since 2019.</span><span class="ru">Бакалавриат, магистратура и MBA за рубежом – от первой стратегии до выбора лучшего оффера. Занимаюсь этим с 2019 года.</span></p>
-      <div class="foot">
-        <p class="cap"><span class="en">Advisees admitted</span><span class="ru">Куда поступили</span></p>
-        <div class="chips"><span class="chip">HEC Paris</span><span class="chip">LBS</span><span class="chip">UPenn</span></div>
-        <div class="cue-row"><span class="cue"><span class="en">Details →</span><span class="ru">Подробнее →</span></span></div>
+  <!-- SERVICES LIST -->
+  <section class="services" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="section-heading">
+      <span class="en">Ways to work with me</span>
+      <span class="ru">Варианты работы со мной</span>
+    </h2>
+
+    <details class="row" name="services" id="s-strategy">
+      <summary>
+        <span class="row-num">01</span>
+        <span class="row-body">
+          <span class="row-title">
+            <span class="en">Strategy, research and advising</span>
+            <span class="ru">Стратегия, исследования и консалтинг</span>
+          </span>
+          <span class="row-teaser">
+            <span class="en">Actionable research for key decisions and interim advisory on project and product management.</span>
+            <span class="ru">Аналитика для принятия решений и экспертная поддержка в управлении проектами или продуктами.</span>
+          </span>
+        </span>
+        <span class="row-indicator" aria-hidden="true"></span>
+      </summary>
+      <div class="row-content">
+        <h4><span class="en">What I do</span><span class="ru">Что я делаю</span></h4>
+        <ul class="arrow">
+          <li><span class="en">Growth strategy, market sizing, unit economics, financial models.</span><span class="ru">Стратегия роста, оценка объема рынка, юнит-экономика, финансовые модели.</span></li>
+          <li><span class="en">Research turned into a clear action plan.</span><span class="ru">Рыночные исследования с четкими рекомендациями.</span></li>
+          <li><span class="en">Advising a team on how to scope, sequence and run delivery.</span><span class="ru">Консультирование команд по определению рамок проекта, приоритизации задач и организации процессов.</span></li>
+        </ul>
+
+        <div class="callout"><span class="en"><b>What this isn't:</b> not a build-my-product engagement. This is a short-term advisory with clear boundaries.</span><span class="ru"><b>Чего здесь нет:</b> я не берусь за полноценную разработку продукта. Это короткий, консультационный и четко ограниченный формат.</span></div>
+
+        <h4><span class="en">Background</span><span class="ru">Опыт</span></h4>
+        <ul class="arrow">
+          <li><span class="en"><b>Strategy consulting — Deloitte:</b> growth strategy, market sizing, unit economics and financial models, credit-rating preparation, and research studies (market &amp; sector studies, CFO surveys).</span><span class="ru"><b>Стратегический консалтинг — Deloitte:</b> стратегия роста, оценка объёма рынка, юнит-экономика и финансовые модели, подготовка к кредитным рейтингам, исследования (обзоры рынков и отраслей, опросы финансовых директоров).</span></li>
+          <li><span class="en"><b>Founder's-associate &amp; finance / IR:</b> earlier-stage companies — financial planning, investor materials and reporting, cross-functional delivery.</span><span class="ru"><b>Founder's associate и финансы / IR:</b> компании ранних стадий – финансовое планирование, материалы и отчётность для инвесторов, кросс-функциональные задачи.</span></li>
+          <li><span class="en"><b>Product — an AI startup (now):</b> product management on a founding team.</span><span class="ru"><b>Продукт — AI-стартап (сейчас):</b> продакт-менеджмент в команде основателей.</span></li>
+        </ul>
+
+        <a class="cta" href="https://calendar.app.google/gex1xPZPVBXuUkcy6"><span class="en">Discuss a project</span><span class="ru">Обсудить проект</span></a>
       </div>
-    </article>
+    </details>
 
-    <article class="tile act" id="t-early" tabindex="0" role="button" aria-haspopup="dialog" data-dialog="dlg-early">
-      <h2 class="tt serif"><span class="en">Figuring out an early-career move</span><span class="ru">Куда двигаться на старте карьеры</span></h2>
-      <p class="teaser"><span class="en">For young adults deciding on a first move, or a next step early in their career.</span><span class="ru">Помогаю тем, кто выбирает первое место работы или думает, как развиваться на старте карьеры.</span></p>
-      <div class="foot">
-        <p class="cap"><span class="en">Experience</span><span class="ru">Опыт</span></p>
-        <div class="chips"><span class="chip"><span class="en">HSE mentor · 5+ yrs</span><span class="ru">Ментор ВШЭ · 5+ лет</span></span></div>
-        <div class="cue-row"><span class="cue"><span class="en">Details →</span><span class="ru">Подробнее →</span></span></div>
+    <details class="row" name="services" id="s-admissions">
+      <summary>
+        <span class="row-num">02</span>
+        <span class="row-body">
+          <span class="row-title">
+            <span class="en">University admissions advising</span>
+            <span class="ru">Поступление в зарубежные вузы</span>
+          </span>
+          <span class="row-teaser">
+            <span class="en">Bachelor's, master's and MBA abroad – from strategy to choosing an offer. Advising since 2019.</span>
+            <span class="ru">Бакалавриат, магистратура и MBA за рубежом – от первой стратегии до выбора лучшего оффера. Занимаюсь этим с 2019 года.</span>
+          </span>
+        </span>
+        <span class="row-indicator" aria-hidden="true"></span>
+      </summary>
+      <div class="row-content">
+        <p class="lead"><span class="en">European business schools offered me scholarships, but I chose to study in the US — where I didn't know that financial aid could be negotiated. I paid for that lack of knowledge out of my own pocket, and now I help others to avoid those same costly mistakes. In my advising work I combine personal experience with tools from my postgraduate diploma in coaching.</span><span class="ru">Европейские бизнес-школы предлагали мне стипендии, но я выбрала учебу в США. Тогда я не знала, что о финансовой помощи можно и нужно договариваться с университетами, и расплачиваюсь за это незнание до сих пор. Теперь я помогаю другим вовремя замечать и избегать таких дорогостоящих ошибок. В этой работе я сочетаю личный опыт и коучинговые инструменты, которые освоила в рамках проф. переподготовки.</span></p>
+
+        <h4><span class="en">Who it's for</span><span class="ru">Кому подходит</span></h4>
+        <ul class="arrow">
+          <li><span class="en"><b>Working professionals</b> — a master's or MBA as a step toward relocation and career growth, when you have ideas but aren't sure they're realistic.</span><span class="ru"><b>Специалисты с опытом</b> – магистратура или MBA как шаг к релокации и карьерному росту, когда идеи уже есть и нужно оценить их реалистичность.</span></li>
+          <li><span class="en"><b>High-school graduates and their parents</b> — study abroad as a long-game plan: exams, deadlines, activities and portfolio on a 1–3 year roadmap.</span><span class="ru"><b>Выпускники школ и их родители</b> – учеба за рубежом как долгосрочная стратегия: подготовка к экзаменам, дедлайны, внеучебные проекты и портфолио на 1–3 года вперед.</span></li>
+        </ul>
+
+        <h4><span class="en">What we'll do</span><span class="ru">Как устроена работа</span></h4>
+        <ol class="steps">
+          <li><span class="en">Map your situation — background, goals, timeline, budget.</span><span class="ru">Разбираем вашу ситуацию – бэкграунд, цели, сроки, бюджет.</span></li>
+          <li><span class="en">Build a strategy — countries, university tiers and program formats matched to your goals.</span><span class="ru">Строим стратегию – страны, уровни вузов и форматы программ под ваши цели.</span></li>
+          <li><span class="en">Prepare the portfolio and applications — resume, essays, motivation and recommendation letters, deadlines.</span><span class="ru">Готовим портфолио и заявки – резюме, эссе, мотивационные и рекомендательные письма, дедлайны.</span></li>
+          <li><span class="en">Choose the offer — comparing program content, costs and visa logistics — and plan next steps.</span><span class="ru">Выбираем оффер, сравнивая учебные планы, финансовые и визовые условия – и планируем следующие шаги.</span></li>
+        </ol>
+
+        <div class="callout"><span class="en"><b>What I don't do:</b> I don't write essays from scratch or build artificial portfolios. The story is yours, while we create a school shortlist that fits it.</span><span class="ru"><b>Чего я не делаю:</b> я не пишу эссе с нуля и не создаю искусственные портфолио. История поступления будет вашей собственной, а я подберу реалистичный список программ и школ.</span></div>
+
+        <h4><span class="en">Formats &amp; prices</span><span class="ru">Форматы и цены</span></h4>
+        <table class="price"><tbody>
+          <tr><td><span class="en">Intro / qualifying call</span><span class="ru">Знакомство / установочная сессия</span></td><td class="len">20–30′</td><td class="amt">0 ₽ <span class="usd">· $0</span></td></tr>
+          <tr><td><span class="en">Focused consultation / portfolio review</span><span class="ru">Точечная консультация / разбор портфолио</span></td><td class="len">60′</td><td class="amt">8 000 ₽ <span class="usd">· $120</span></td></tr>
+          <tr><td><span class="en">Program shortlist — standard (up to 10 programs)</span><span class="ru">Базовый подбор программ (до 10 вузов)</span></td><td class="len">90′</td><td class="amt">25 000 ₽ <span class="usd">· $300</span></td></tr>
+          <tr><td><span class="en">Program shortlist — extended (grants, funding &amp; living costs)</span><span class="ru">Расширенный подбор программ (гранты, бюджет, стоимость жизни)</span></td><td class="len">90–120′</td><td class="amt">40 000 ₽ <span class="usd">· $500</span></td></tr>
+          <tr><td><span class="en">Long-term admissions roadmap (1–3 years), for high-school students</span><span class="ru">План подготовки к поступлению (1–3 года), для школьников</span></td><td class="len">90′</td><td class="amt">25 000 ₽ <span class="usd">· $300</span></td></tr>
+          <tr><td><span class="en">Admissions roadmap follow-up session</span><span class="ru">Контрольная сессия по плану поступления</span></td><td class="len">60′</td><td class="amt">8 000 ₽ <span class="usd">· $120</span></td></tr>
+          <tr><td><span class="en">Statement of purpose editorial review (1–2 rounds, per program)</span><span class="ru">Редактура мотивационного письма (1–2 итерации, за программу)</span></td><td class="len">60–90′ + async</td><td class="amt">10 000 ₽ <span class="usd">· $150</span></td></tr>
+          <tr><td><span class="en">Admissions CV editorial review</span><span class="ru">Редактура академического резюме (CV)</span></td><td class="len">45–60′</td><td class="amt">8 000 ₽ <span class="usd">· $120</span></td></tr>
+          <tr><td><span class="en">Letter of recommendation editorial review (per letter)</span><span class="ru">Редактура рекомендательного письма (за документ)</span></td><td class="len">45′</td><td class="amt">6 000–8 000 ₽ <span class="usd">· $90–120</span></td></tr>
+          <tr><td><span class="en">Mock admissions interview + feedback</span><span class="ru">Тренировочное собеседование с разбором</span></td><td class="len">60′</td><td class="amt">10 000 ₽ <span class="usd">· $150</span></td></tr>
+          <tr><td><span class="en">Offer evaluation &amp; final decision strategy</span><span class="ru">Оценка офферов и стратегия финального выбора</span></td><td class="len">60′</td><td class="amt">10 000 ₽ <span class="usd">· $150</span></td></tr>
+        </tbody></table>
+        <p class="muted-note"><span class="en">The time shown is the length of our session together; the work behind each one (e.g. building a program shortlist) takes me several more hours. Individual packages available for one key target program.</span><span class="ru">Указана длительность нашей онлайн-сессии. Моя самостоятельная подготовка (например, составление подборки программ) занимает дополнительное время. Возможно индивидуальное сопровождение под одну ключевую программу.</span></p>
+
+        <h4><span class="en">Selected results</span><span class="ru">Отдельные результаты</span></h4>
+        <div class="cases">
+          <div class="case tcase"><div class="yr">2025</div>
+            <div class="inst">London Business School</div>
+            <div class="meta"><span class="en">Management (MiM, master's) · UK / France</span><span class="ru">Менеджмент (MiM, магистратура) · Великобритания / Франция</span></div>
+            <div class="res"><span class="en">Offers from LBS &amp; ESSEC — chose LBS</span><span class="ru">Офферы LBS и ESSEC — выбрала LBS</span></div>
+            <div class="shot"><p class="rcap">Отзыв →</p><img src="admissions-testimonials-mim-essec-lbs.jpeg" alt="Отзыв клиента о поступлении в LBS и ESSEC" loading="lazy"></div></div>
+          <div class="case tcase"><div class="yr">2024</div>
+            <div class="inst">HEC Paris</div>
+            <div class="meta"><span class="en">Finance / Quantitative Finance (master's) · France, Netherlands, Sweden, Germany</span><span class="ru">Финансы / количественные финансы (магистратура) · Франция, Нидерланды, Швеция, Германия</span></div>
+            <div class="res"><span class="en">5 / 5 offers · full-tuition grant + €5,000/yr at Amsterdam · 50% Al Jochnick scholarship at SSE · chose HEC Paris</span><span class="ru">5 из 5 офферов · полный грант + €5 000/год в Amsterdam · стипендия 50% (Al Jochnick) в SSE · выбрала HEC Paris</span></div>
+            <div class="shot"><p class="rcap">Отзыв →</p><img src="admissions-testimonials-hec-amsterdam.jpeg" alt="Отзыв клиента: 100% acceptance rate" loading="lazy"></div></div>
+          <div class="case tcase"><div class="yr">2024</div>
+            <div class="inst">Humboldt / BCCN Berlin</div>
+            <div class="meta"><span class="en">Cognitive &amp; Computational Neuroscience (master's) · Germany</span><span class="ru">Когнитивная и вычислительная нейронаука (магистратура) · Германия</span></div>
+            <div class="res"><span class="en">Admitted — top-choice program</span><span class="ru">Поступление — программа первого приоритета</span></div>
+            <div class="shot"><p class="rcap">Отзыв →</p><img src="admissions-testimonials-humboldt.jpeg" alt="Отзыв клиента о поступлении в вуз первого приоритета" loading="lazy"></div></div>
+          <div class="case tcase"><div class="yr">2024</div>
+            <div class="inst">Lauder Business School</div>
+            <div class="meta"><span class="en">Strategic Finance &amp; Business Analytics (master's) · Austria (Vienna)</span><span class="ru">Strategic Finance &amp; Business Analytics (магистратура) · Австрия (Вена)</span></div>
+            <div class="res"><span class="en">Admitted</span><span class="ru">Поступление</span></div>
+            <div class="shot"><p class="rcap">Отзыв →</p><img src="admissions-testimonials-lauder.jpeg" alt="Отзыв клиента о поступлении в Lauder Business School" loading="lazy"></div></div>
+          <div class="case"><div class="yr">2024</div>
+            <div class="inst">EDHEC</div>
+            <div class="meta"><span class="en">Business Administration (BBA, bachelor's) · France</span><span class="ru">Business Administration (BBA, бакалавриат) · Франция</span></div>
+            <div class="res"><span class="en">5+ offers</span><span class="ru">5+ офферов</span></div></div>
+          <div class="case"><div class="yr">2022</div>
+            <div class="inst">Imperial College London</div>
+            <div class="meta"><span class="en">Mathematics (bachelor's) · UK</span><span class="ru">Математика (бакалавриат) · Великобритания</span></div>
+            <div class="res"><span class="en">Admitted</span><span class="ru">Поступление</span></div></div>
+          <div class="case"><div class="yr">2021</div>
+            <div class="inst">University of Pennsylvania</div>
+            <div class="meta"><span class="en">Bioengineering (bachelor's) · USA</span><span class="ru">Биоинженерия (бакалавриат) · США</span></div>
+            <div class="res"><span class="en">Admitted (Ivy League) + Vanderbilt summer school</span><span class="ru">Поступление (Лига плюща) + летняя школа Vanderbilt</span></div></div>
+          <div class="case"><div class="yr">2021</div>
+            <div class="inst">London Business School</div>
+            <div class="meta"><span class="en">UK</span><span class="ru">Великобритания</span></div>
+            <div class="res"><span class="en">Admitted</span><span class="ru">Поступление</span></div></div>
+          <div class="case"><div class="yr">2021</div>
+            <div class="inst">LMU Munich</div>
+            <div class="meta"><span class="en">Mathematical &amp; Computational Finance (master's) · Germany</span><span class="ru">Математические и вычислительные финансы (магистратура) · Германия</span></div>
+            <div class="res"><span class="en">Admitted</span><span class="ru">Поступление</span></div></div>
+          <div class="case"><div class="yr">2020</div>
+            <div class="inst">IÉSEG</div>
+            <div class="meta"><span class="en">Data Analytics (master's) · France</span><span class="ru">Аналитика данных (магистратура) · Франция</span></div>
+            <div class="res"><span class="en">Admitted</span><span class="ru">Поступление</span></div></div>
+        </div>
+
+        <a class="cta" href="https://calendar.app.google/gex1xPZPVBXuUkcy6"><span class="en">Book a starter consultation</span><span class="ru">Записаться на стартовую консультацию</span></a>
       </div>
-    </article>
+    </details>
 
-    <article class="tile act" id="t-strategy" tabindex="0" role="button" aria-haspopup="dialog" data-dialog="dlg-strategy">
-      <h2 class="tt serif"><span class="en">Strategy, research &amp; advising</span><span class="ru">Стратегия, исследования и консалтинг</span></h2>
-      <p class="teaser"><span class="en">Decision-oriented work with a clear written output — plus a temporary hand advising on project or product management.</span><span class="ru">Аналитика для принятия решений с понятным результатом, а также экспертная поддержка в управлении проектами или продуктами.</span></p>
-      <div class="foot">
-        <p class="cap"><span class="en">Background</span><span class="ru">Опыт</span></p>
-        <div class="chips"><span class="chip">Deloitte</span></div>
-        <div class="cue-row"><span class="cue"><span class="en">Details →</span><span class="ru">Подробнее →</span></span></div>
+    <details class="row" name="services" id="s-early">
+      <summary>
+        <span class="row-num">03</span>
+        <span class="row-body">
+          <span class="row-title">
+            <span class="en">Figuring out an early-career move</span>
+            <span class="ru">Куда двигаться на старте карьеры</span>
+          </span>
+          <span class="row-teaser">
+            <span class="en">For young adults deciding on a first move, or a next step early in their career.</span>
+            <span class="ru">Помогаю тем, кто выбирает первое место работы или думает, как развиваться на старте карьеры.</span>
+          </span>
+        </span>
+        <span class="row-indicator" aria-hidden="true"></span>
+      </summary>
+      <div class="row-content">
+        <p class="lead"><span class="en">My field is economics, finance, business and consulting — that's where I can help best, including if you're switching into it from something else.</span><span class="ru">Я специализируюсь на экономике, финансах, бизнесе и консалтинге. В этих сферах я могу помочь эффективнее всего — в том числе если вы переходите туда из другой индустрии.</span></p>
+
+        <h4><span class="en">What we'd do</span><span class="ru">Что мы сделаем</span></h4>
+        <ul class="arrow">
+          <li><span class="en">Work out which direction fits when several look plausible.</span><span class="ru">Разберемся, какое направление выбрать, если вариантов несколько и все кажутся перспективными.</span></li>
+          <li><span class="en">Turn "I should do something" into a concrete next move.</span><span class="ru">Превратим абстрактное «надо что-то делать» в конкретный шаг.</span></li>
+          <li><span class="en">Position your experience honestly — CV and personal story.</span><span class="ru">Честно сформулируем вашу историю и опыт – в резюме и за его пределами.</span></li>
+          <li><span class="en">Prep for behavioral interviews and landing interviews at companies.</span><span class="ru">Подготовимся к поведенческим (behavioral) интервью, чтобы уверенно проходить отбор в компании.</span></li>
+        </ul>
+
+        <div class="callout"><span class="en">I've mentored undergraduates in my HSE program for 5+ years, helped people land interviews at Russian companies, and coach for behavioral interviews — plus a postgraduate diploma in coaching.</span><span class="ru">Больше пяти лет я менторю студентов на своей программе в НИУ ВШЭ, помогаю проходить отбор в компании и готовлю к поведенческим интервью. Также у меня есть диплом НИУ ВШЭ о профессиональной переподготовке по коучингу.</span></div>
+
+        <h4><span class="en">Formats &amp; prices</span><span class="ru">Форматы и цены</span></h4>
+        <table class="price"><tbody>
+          <tr><td><span class="en">Intro call</span><span class="ru">Знакомство / установочная сессия</span></td><td class="len">20–30′</td><td class="amt">0 ₽ <span class="usd">· $0</span></td></tr>
+          <tr><td><span class="en">CV &amp; LinkedIn express audit (diagnostic only)</span><span class="ru">Экспресс-аудит CV / LinkedIn (диагностика без правок)</span></td><td class="len">20′</td><td class="amt">4 000 ₽ <span class="usd">· $60</span></td></tr>
+          <tr><td><span class="en">CV &amp; LinkedIn review + editorial editing</span><span class="ru">Разбор CV и LinkedIn с редактурными правками</span></td><td class="len">90′ + async</td><td class="amt">15 000 ₽ <span class="usd">· $220</span></td></tr>
+          <tr><td><span class="en">Interview prep — mock interview &amp; feedback (1 session)</span><span class="ru">Подготовка к интервью (симуляция + разбор, 1 сессия)</span></td><td class="len">60′</td><td class="amt">8 000 ₽ <span class="usd">· $120</span></td></tr>
+          <tr><td><span class="en">Interview prep package (3 sessions)</span><span class="ru">Подготовка к интервью (пакет из 3 сессий)</span></td><td class="len">3 × 60′</td><td class="amt">25 000 ₽ <span class="usd">· $370</span></td></tr>
+          <tr><td><span class="en">Career strategy session (single session)</span><span class="ru">Разовая карьерная консультация</span></td><td class="len">60′</td><td class="amt">8 000 ₽ <span class="usd">· $120</span></td></tr>
+          <tr><td><span class="en">Career strategy session + 4–6 week follow-up</span><span class="ru">Карьерная консультация + контрольная встреча через 4–6 недель</span></td><td class="len">90 + 60′</td><td class="amt">15 000 ₽ <span class="usd">· $220</span></td></tr>
+        </tbody></table>
+        <p class="muted-note"><span class="en">The time shown is our session length; preparation on my side takes additional time.</span><span class="ru">Указана длительность нашей сессии; моя подготовка занимает дополнительное время.</span></p>
+
+        <a class="cta" href="https://calendar.app.google/gex1xPZPVBXuUkcy6"><span class="en">Book an intro call</span><span class="ru">Записаться на стартовую консультацию</span></a>
       </div>
-    </article>
+    </details>
 
-    <article class="tile act" id="t-teaching" tabindex="0" role="button" aria-haspopup="dialog" data-dialog="dlg-teaching">
-      <h2 class="tt serif"><span class="en">Teaching · research · writing</span><span class="ru">Преподавание · исследования · тексты</span></h2>
-      <p class="teaser"><span class="en">Short-term collaborations I'm genuinely interested in — and the direction I'm moving toward.</span><span class="ru">Краткосрочные совместные проекты, которые мне искренне интересны — и вектор, в котором я развиваюсь.</span></p>
-      <div class="foot">
-        <p class="cap"><span class="en">Experience</span><span class="ru">Опыт</span></p>
-        <div class="chips"><span class="chip"><span class="en">Dev. Economics · 5 yrs</span><span class="ru">Экономика развития · 5 лет</span></span></div>
-        <div class="cue-row"><span class="cue"><span class="en">Details →</span><span class="ru">Подробнее →</span></span></div>
+    <details class="row" name="services" id="s-teaching">
+      <summary>
+        <span class="row-num">04</span>
+        <span class="row-body">
+          <span class="row-title">
+            <span class="en">Teaching, research and writing</span>
+            <span class="ru">Преподавание, исследования и тексты</span>
+          </span>
+          <span class="row-teaser">
+            <span class="en">Short-term collaborations in the fields I'm interested in – this is the direction I'm moving toward.</span>
+            <span class="ru">Краткосрочные совместные проекты, которые мне искренне интересны – и вектор, в котором я развиваюсь.</span>
+          </span>
+        </span>
+        <span class="row-indicator" aria-hidden="true"></span>
+      </summary>
+      <div class="row-content">
+        <h4><span class="en">Teaching</span><span class="ru">Преподавание</span></h4>
+        <ul class="arrow">
+          <li><span class="en"><b>University</b> — Development Economics to undergraduates for five years, supervising their first research projects. Earlier, an applied Audit &amp; Management Accounting course (ACCA-aligned), whose study guide I co-wrote.</span><span class="ru"><b>Университет</b> – пять лет преподаю экономику развития студентам бакалавриата и руковожу их первыми исследовательскими работами. Ранее – прикладной курс по аудиту и управленческому учёту (по стандартам ACCA), для которого была со-автором методички.</span></li>
+          <li><span class="en"><b>School</b> — at Moscow School 1567, year- and semester-long CLIL courses in Mathematics and Statistics for ESL students: curriculum design and materials from scratch.</span><span class="ru"><b>Школа</b> – в московской школе 1567 годовые и семестровые CLIL-курсы по математике и статистике для учеников на английском: программа и материалы с нуля.</span></li>
+        </ul>
+
+        <h4><span class="en">Research</span><span class="ru">Исследования</span></h4>
+        <p><span class="en">My interests sit where economics, AI and education meet:</span><span class="ru">Мои интересы лежат на стыке экономики, AI и образования:</span></p>
+        <ul class="arrow">
+          <li><span class="en">How AI adoption is reshaping labour markets — especially junior and entry-level work.</span><span class="ru">Как внедрение AI меняет рынки труда – особенно стартовые позиции и работу начинающих специалистов.</span></li>
+          <li><span class="en">Development economics as a wider field.</span><span class="ru">Экономика развития как широкое научное направление.</span></li>
+          <li><span class="en">How higher education is transforming right now.</span><span class="ru">Как прямо сейчас трансформируется высшее образование.</span></li>
+          <li><span class="en">How AI deployment lands in the countries on the receiving end of it.</span><span class="ru">Как технологии AI приходят в страны на принимающей стороне — к пользователям и государствам, которые сами не создают эти системы.</span></li>
+        </ul>
+        <p><span class="en">I bring an operator's-eye view and a vantage across the US, Russia and Kazakhstan.</span><span class="ru">Я смотрю на эти процессы изнутри, как практик, опираясь на опыт в США, России и Казахстане.</span></p>
+
+        <h4><span class="en">Writing</span><span class="ru">Тексты</span></h4>
+        <p><span class="en">Clear pieces that turn scattered evidence into something you can act on.</span><span class="ru">Понятные тексты, превращающие разрозненные данные в основу для конкретных действий.</span></p>
+
+        <a class="cta" href="mailto:m.mameshova@gmail.com?subject=Teaching%20%2F%20research%20%2F%20writing"><span class="en">Get in touch</span><span class="ru">Связаться со мной</span></a>
       </div>
-    </article>
+    </details>
+  </section>
 
-    <!-- ABOUT -->
-    <article class="tile act" id="t-about" tabindex="0" role="button" aria-haspopup="dialog" data-dialog="dlg-about">
-      <h2 class="tt serif"><span class="en">About me</span><span class="ru">Обо мне</span></h2>
-      <p class="teaser"><span class="en">One thread runs through consulting, university administration, teaching and startups: I build structure where there isn't any, and get evidence to where decisions are made.</span><span class="ru">Консалтинг, управление учебным офисом, преподавание и стартапы объединяет одно: я создаю структуру там, где её нет, и обеспечиваю данными тех, кто принимает решения.</span></p>
-      <div class="foot">
-        <div class="chips"><span class="chip"><span class="en">Career · education · publications</span><span class="ru">Карьера · образование · публикации</span></span></div>
-        <div class="cue-row"><span class="cue"><span class="en">Read more →</span><span class="ru">Подробнее →</span></span></div>
+  <!-- ABOUT — separate expandable row, own name group so it can open independently -->
+  <section class="about-section">
+    <details class="row row--about" name="about" id="s-about">
+      <summary>
+        <span class="row-num" aria-hidden="true"></span>
+        <span class="row-body">
+          <span class="row-title">
+            <span class="en">About me</span>
+            <span class="ru">Обо мне</span>
+          </span>
+          <span class="row-teaser">
+            <span class="en">Consulting, university administration, teaching and startups – one thread runs through them.</span>
+            <span class="ru">Консалтинг, управление учебным офисом, преподавание и стартапы – их объединяет одно.</span>
+          </span>
+        </span>
+        <span class="row-indicator" aria-hidden="true"></span>
+      </summary>
+      <div class="row-content">
+        <p class="lead"><span class="en">One thread runs through consulting, university administration, teaching and startups: I build structure where there isn't any, and get evidence to where decisions are made. Right now that's product at an early-stage AI company.</span><span class="ru">Консалтинг, управление учебным офисом в университете, преподавание и стартапы объединяет одно: я создаю структуру там, где ее нет, и обеспечиваю данными тех, кто принимает решения. Сейчас я отвечаю за продукт в AI-стартапе на ранней стадии.</span></p>
+
+        <div class="dlg-links">
+          <a href="https://linkedin.com/in/mmameshova" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://drive.google.com/file/d/1rof1araxvTAHSFeTZL4poJXRLAsr-lSv/view?usp=sharing" data-cv id="cvLink" target="_blank" rel="noopener"><span class="en">Download CV ↗</span><span class="ru">Скачать резюме ↗</span></a>
+        </div>
+
+        <h4><span class="en">Career</span><span class="ru">Карьера</span></h4>
+        <ul class="tl">
+          <li><span class="yr">2025 – <span class="en">present</span><span class="ru">наст. вр.</span></span><span><span class="en"><b>Alobro</b> – Co-founder &amp; Product Lead<span class="det">Full-time since Feb 2026 · AI product-management platform · San Francisco / Remote</span></span><span class="ru"><b>Alobro</b> – сооснователь и Product Lead<span class="det">Full-time с февраля 2026 · AI-платформа для продакт-менеджмента · Сан-Франциско / удаленно</span></span></span></li>
+          <li><span class="yr">2016 – <span class="en">present</span><span class="ru">наст. вр.</span></span><span><span class="en"><b>HSE University</b> – Teaching, academic mentoring &amp; thesis committee member<span class="det">Term-paper advisor (since 2016)<br>Undergraduate mentoring (since 2019)<br>Bachelor's Thesis Defense Committee (since 2021)<br>Taught Audit &amp; Accounting (2016–17) and Development Economics (2021–25)</span></span><span class="ru"><b>НИУ ВШЭ</b> – преподавание, академическое менторство и член ГЭК<span class="det">Руководство курсовыми работами студентов (с 2016)<br>Менторство студентов (с 2019)<br>Член ГЭК по защите ВКР (с 2021)<br>Преподавание - Аудит и учет (2016–17), Экономика развития (2021–25)</span></span></span></li>
+          <li><span class="yr">2024 – 2026</span><span><span class="en"><b>ivideon / Areonic</b> – Founder's Associate &amp; Strategic Projects Manager<span class="det">Cloud video-surveillance &amp; analytics scale-up · US / CIS / GCC</span></span><span class="ru"><b>ivideon / Areonic</b> – Founder's Associate, руководитель стратегических проектов<span class="det">Скейлап в облачном видеонаблюдении и аналитике · США / СНГ / Ближний Восток</span></span></span></li>
+          <li><span class="yr">2024 – 2026</span><span><span class="en"><b>Sapar Sports</b> – Finance &amp; Investor Relations Advisor<span class="det">Seed-stage sports-tech startup · Orange County, CA / Remote</span></span><span class="ru"><b>Sapar Sports</b> – советник по финансам и связям с инвесторами (IR)<span class="det">Спортивный стартап, seed stage · Orange County, CA / удаленно</span></span></span></li>
+          <li><span class="yr">2021 – 2024</span><span><span class="en"><b>Deloitte</b> – Consultant → Senior Consultant → Assistant Manager<span class="det">Strategy, IR &amp; Corporate Governance · Almaty / Moscow</span></span><span class="ru"><b>Deloitte</b> – консультант → старший консультант → младший менеджер<span class="det">Стратегия, IR и корпоративное управление · Алматы / Москва</span></span></span></li>
+          <li><span class="yr">2020 – 2021</span><span><span class="en"><b>HSE University</b> – Head of Student &amp; Academic Support Office<span class="det">Institute of Education · 6 master's programs, 500+ students</span></span><span class="ru"><b>НИУ ВШЭ</b> – руководитель учебного офиса<span class="det">Институт образования · 6 программ магистратуры, 500+ студентов</span></span></span></li>
+          <li><span class="yr">2019 – 2020</span><span><span class="en"><b>Deloitte</b> – CIS Research Center Lead<span class="det">Sector studies, macro analytics &amp; thought leadership</span></span><span class="ru"><b>Deloitte</b> – руководитель Исследовательского центра в СНГ<span class="det">Отраслевые исследования, макроаналитика и спецпроекты</span></span></span></li>
+          <li><span class="yr">2018 – 2019</span><span><span class="en"><b>New York University</b> – Assistant SEVIS Compliance Advisor<span class="det">Office of Global Services · international student support</span></span><span class="ru"><b>New York University</b> – специалист по комплаенсу<span class="det">Office of Global Services · поддержка международных студентов</span></span></span></li>
+          <li><span class="yr">2016 – 2017</span><span><span class="en"><b>HSE University (ICEF)</b> – Dean of Students<span class="det">Dual-degree undergraduate program with LSE</span></span><span class="ru"><b>НИУ ВШЭ (МИЭФ)</b> – Dean of Students (Куратор по работе со студентами бакалавриата)<span class="det">Программа двух дипломов бакалавриата с LSE</span></span></span></li>
+        </ul>
+
+        <h4><span class="en">Education &amp; credentials</span><span class="ru">Образование и квалификация</span></h4>
+        <ul class="arrow">
+          <li><span class="en"><b>MA · Sociology &amp; Education Policy</b> – New York University (2017–2019)<span class="det">GPA 3.8/4.0 · Departmental Banner Bearer (academic excellence) · NRHH Chapter Award (residential-life leadership)</span></span><span class="ru"><b>Магистратура · социология и образовательная политика</b> – New York University (2017–2019)<span class="det">GPA 3.8/4.0 · награды факультета и премия NRHH (за академические успехи и вклад в жизнь факультета и кампуса)</span></span></li>
+          <li><span class="en"><b>BSc · Accounting &amp; Finance / Economics</b> – University of London &amp; HSE University (2012–2016)<span class="det">Dual-degree program (ICEF / LSE direction) · Upper Second Class Honours · merit scholarship (60% tuition) · Dean's letter of recognition</span></span><span class="ru"><b>Бакалавриат · экономика и финансы / учет и финансы</b> – НИУ ВШЭ и Лондонский университет (2012–2016)<span class="det">Программа двух дипломов МИЭФ (направление LSE) · диплом с отличием (Upper Second Class Honours) · академическая скидка 60% · почетная грамота за активное участие в жизни института</span></span></li>
+          <li><span class="en"><b>Professional postgraduate diploma · Coaching &amp; People Management</b> – HSE University (2025)</span><span class="ru"><b>Диплом о профессиональной переподготовке · Коучинг </b> – НИУ ВШЭ (2025)</span></li>
+          <li><span class="en"><b>Languages</b> – Russian (native), English (fluent), German &amp; Japanese (elementary)</span><span class="ru"><b>Языки</b> – русский (родной), английский (в совершенстве), немецкий и японский (базовый)</span></li>
+        </ul>
+
+        <h4><span class="en">Publications (co-authored)</span><span class="ru">Публикации (соавтор)</span></h4>
+        <ul class="pubs">
+          <li>
+            <a class="p-t" href="https://createdin.moscow/aki.0/default/0001/01/4f211aa2b861bf9c67a2d285165675a9d57b63c6.pdf" target="_blank" rel="noopener"><span class="en">Advertising Content Production Market Study</span><span class="ru">Исследование рынка производства рекламного контента</span></a>
+            <div class="p-d"><span class="en">Deloitte, 2022 — market sizing &amp; growth outlook for Russia's creative-content production.</span><span class="ru">Deloitte, 2022 — оценка объема и перспектив роста рынка креативного контента в России.</span></div>
+          </li>
+          <li>
+            <a class="p-t" href="https://createdin.moscow/aki.0/default/0001/01/20a2e37d1311ff81f5def3855a351116c0f99b64.pdf" target="_blank" rel="noopener"><span class="en">Contemporary Art Market Study</span><span class="ru">Исследование рынка современного искусства</span></a>
+            <div class="p-d"><span class="en">Deloitte, 2022 — analysis of Russia's contemporary-art sector for a state creative-industries program.</span><span class="ru">Deloitte, 2022 — анализ сектора современного искусства для государственной программы развития креативных индустрий.</span></div>
+          </li>
+          <li>
+            <a class="p-t" href="https://www.kommersant.ru/doc/4277500" target="_blank" rel="noopener"><span class="en">Women-CEO in Russia: Financial Performance Indicators</span><span class="ru">Женщины-руководители в России: финансовые показатели компаний</span></a>
+            <div class="p-d"><span class="en">Deloitte, 2020 — study of 224,100 firms; press: Kommersant.</span><span class="ru">Deloitte, 2020 — исследование на базе данных 224 100 фирм; публикации в СМИ: «Коммерсантъ».</span></div>
+          </li>
+          <li>
+            <a class="p-t" href="https://ru.readkong.com/page/tendencii-razvitiya-robotizacii-v-rf-deloitte-7047445" target="_blank" rel="noopener"><span class="en">Trends in Robotic Process Automation in Russia</span><span class="ru">Тенденции роботизации процессов (RPA) в России</span></a>
+            <div class="p-d"><span class="en">Deloitte, 2020 — RPA adoption, obstacles and expectations by sector.</span><span class="ru">Deloitte, 2020 — внедрение RPA, барьеры и ожидания по отраслям.</span></div>
+          </li>
+          <li>
+            <a class="p-t" href="http://web.archive.org/web/20220121060103/https://www2.deloitte.com/content/dam/Deloitte/ru/Documents/research-center/CFO-Survey-Apr-2020.pdf" target="_blank" rel="noopener"><span class="en">CFO Survey, 1H 2020</span><span class="ru">Опрос финансовых директоров (CFO Survey), I полугодие 2020</span></a>
+            <div class="p-d"><span class="en">Deloitte, 2020 — CFO sentiment across Russian markets.</span><span class="ru">Deloitte, 2020 — настроения финансовых директоров на российском рынке.</span></div>
+          </li>
+        </ul>
       </div>
-    </article>
+    </details>
+  </section>
 
-    <!-- CONTACT -->
-    <section class="tile" id="t-contact">
-      <h2 class="tt serif"><span class="en">Get in touch</span><span class="ru">Как связаться</span></h2>
-      <p class="teaser"><span class="en">Whatever brought you here — one of these or something else entirely — just write to me. I read everything myself.</span><span class="ru">Какая бы задача вас ни привела — любой из этих пунктов или совсем другой вопрос — просто напишите мне. Я читаю все сообщения сама.</span></p>
-      <div class="links">
-        <a href="mailto:m.mameshova@gmail.com">m.mameshova@gmail.com</a>
-        <a href="https://t.me/moody_maddy" target="_blank" rel="noopener">Telegram</a>
-        <a href="https://linkedin.com/in/mmameshova" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </section>
+  <!-- CONTACT — accent color block, always visible -->
+  <section class="contact" id="t-contact">
+    <h2 class="contact-title">
+      <span class="en">Get in touch</span>
+      <span class="ru">Как связаться</span>
+    </h2>
+    <p class="contact-lead">
+      <span class="en">Whatever brought you here – one of these or something else entirely – just write to me. I read everything myself.</span>
+      <span class="ru">Какая бы задача вас ни привела – любой из этих пунктов или совсем другой вопрос – просто напишите мне. Я читаю все сообщения сама.</span>
+    </p>
+    <div class="contact-links">
+      <a href="mailto:m.mameshova@gmail.com">m.mameshova@gmail.com</a>
+      <a href="https://t.me/moody_maddy" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://linkedin.com/in/mmameshova" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
 
-  </main>
-</div>
-
-<!-- ===================== DIALOGS ===================== -->
-
-<dialog id="dlg-admissions"><div class="panel">
-  <button class="x" data-close aria-label="Close">✕</button>
-  <h3 class="dt"><span class="en">Getting into a university abroad</span><span class="ru">Поступление в зарубежные вузы</span></h3>
-  <p class="sub"><span class="en">Bachelor's, master's and MBA — from strategy to choosing an offer. Advising since 2019.</span><span class="ru">Бакалавриат, магистратура и MBA – от первой стратегии до выбора лучшего оффера. Занимаюсь этим с 2019 года.</span></p>
-
-  <p class="lead"><span class="en">European business schools offered me scholarships, and I chose to study in the US instead — where I didn't know that financial aid could be negotiated, and paid for not knowing. Helping people see that kind of expensive, avoidable mistake coming is a lot of why I'm good at this. In my advising work I combine personal experience with tools from my postgraduate diploma in coaching.</span><span class="ru">Европейские бизнес-школы предлагали мне стипендии, но я выбрала учебу в США. Тогда я не знала, что о финансовой помощи можно и нужно договариваться с университетами, и расплачиваюсь за это незнание до сих пор. Теперь я помогаю другим вовремя замечать эти критические и дорогостоящие ошибки, используя личный опыт и коучинговые инструменты, которые я освоила в рамках проф. переподготовки.</span></p>
-
-  <h4><span class="en">Who it's for</span><span class="ru">Кому подходит</span></h4>
-  <ul class="arrow">
-    <li><span class="en"><b>Working professionals</b> — a master's or MBA as a step toward relocation and career growth, when you have ideas but aren't sure they're realistic.</span><span class="ru"><b>Специалисты с опытом</b> – магистратура или MBA как шаг к релокации и карьерному росту, когда идеи уже есть и нужно оценить их реалистичность.</span></li>
-    <li><span class="en"><b>High-school graduates and their parents</b> — study abroad as a long-game plan: exams, deadlines, activities and portfolio on a 1–3 year roadmap.</span><span class="ru"><b>Выпускники школ и их родители</b> – учеба за рубежом как долгосрочная стратегия: подготовка к экзаменам, дедлайны, внеучебные проекты и портфолио на 1–3 года вперед.</span></li>
-  </ul>
-
-  <h4><span class="en">How it works</span><span class="ru">Как устроена работа</span></h4>
-  <ol class="steps">
-    <li><span class="en">Map your situation — background, goals, timeline, budget.</span><span class="ru">Разбираем вашу ситуацию – бэкграунд, цели, сроки, бюджет.</span></li>
-    <li><span class="en">Build a strategy — countries, university tiers and program formats matched to your goals.</span><span class="ru">Строим стратегию – страны, уровни вузов и форматы программ под ваши цели.</span></li>
-    <li><span class="en">Prepare the portfolio and applications — resume, essays, motivation and recommendation letters, deadlines.</span><span class="ru">Готовим портфолио и заявки – резюме, эссе, мотивационные и рекомендательные письма, дедлайны.</span></li>
-    <li><span class="en">Choose the offer — comparing academics, money and visa — and plan next steps.</span><span class="ru">Выбираем оффер – сравниваем по учёбе, финансам и визе – и планируем следующие шаги.</span></li>
-  </ol>
-
-  <div class="callout"><span class="en"><b>What I don't do:</b> I don't write essays from scratch or build artificial portfolios. The shortlist stays realistic, the story stays yours.</span><span class="ru"><b>Чего я не делаю:</b> я не пишу эссе с нуля и не создаю искусственные портфолио. История поступления будет вашей собственной, а я подберу реалистичный список программ и школ.</span></div>
-
-  <h4><span class="en">Formats &amp; prices</span><span class="ru">Форматы и цены</span></h4>
-  <table class="price"><tbody>
-    <tr><td><span class="en">Starter consultation</span><span class="ru">Стартовая консультация</span></td><td class="len">60′</td><td class="amt">5 000 ₽</td></tr>
-    <tr><td><span class="en">Country &amp; program shortlist — basic (10–15 programs)</span><span class="ru">Базовый подбор стран и программ (10–15 вариантов)</span></td><td class="len">60–90′</td><td class="amt">10 000–15 000 ₽</td></tr>
-    <tr><td><span class="en">Shortlist — extended (grants, costs, funding)</span><span class="ru">Расширенный подбор (гранты, расходы, финансирование)</span></td><td class="len">90′</td><td class="amt">20 000 ₽</td></tr>
-    <tr><td><span class="en">Focused consult / portfolio review</span><span class="ru">Целевая консультация или разбор портфолио</span></td><td class="len">60′</td><td class="amt">5 000 ₽</td></tr>
-    <tr><td><span class="en">Detailed admission plan (1–3 yrs), for high-school graduates</span><span class="ru">Подробный план поступления (1–3 года), для выпускников школ</span></td><td class="len">90′</td><td class="amt">15 000 ₽</td></tr>
-  </tbody></table>
-  <p class="muted-note"><span class="en">The time shown is the length of our session together; the work behind each one (e.g. building a program shortlist) takes me several more hours. Individual packages available for one key target program.</span><span class="ru">Указана длительность нашей онлайн-сессии. Моя самостоятельная подготовка (например, составление подборки программ) занимает дополнительное время. Возможно индивидуальное сопровождение под одну ключевую программу.</span></p>
-
-  <h4><span class="en">Selected results</span><span class="ru">Отдельные результаты</span></h4>
-  <div class="cases">
-    <div class="case"><div class="yr">2025</div>ESSEC + London Business School (MiM)</div>
-    <div class="case"><div class="yr">2024</div><span class="en">HEC Paris — chosen over 5 EU offers, incl. 50% scholarship at Stockholm School of Economics &amp; a full grant at Amsterdam</span><span class="ru">HEC Paris – выбран из 5 офферов ЕС, среди них стипендия 50% в Stockholm School of Economics и полный грант в Амстердаме</span></div>
-    <div class="case"><div class="yr">2024</div><span class="en">Humboldt University Berlin — Computational Neuroscience</span><span class="ru">Humboldt University Berlin – computational neuroscience</span></div>
-    <div class="case"><div class="yr">2022</div><span class="en">London Business School — Management</span><span class="ru">London Business School – management</span></div>
-    <div class="case"><div class="yr">2021</div><span class="en">University of Pennsylvania — Bioengineering (bachelor's)</span><span class="ru">University of Pennsylvania – bioengineering (бакалавриат)</span></div>
-    <div class="case"><div class="yr">2022–24</div><span class="en">EDHEC BBA — 5+ offers</span><span class="ru">EDHEC BBA – 5+ офферов</span></div>
-  </div>
-
-  <a class="cta" href="mailto:m.mameshova@gmail.com?subject=Admissions%20consultation"><span class="en">Book a starter consultation →</span><span class="ru">Записаться на стартовую консультацию →</span></a>
-</div></dialog>
-
-<dialog id="dlg-early"><div class="panel">
-  <button class="x" data-close aria-label="Close">✕</button>
-  <h3 class="dt"><span class="en">Figuring out an early-career move</span><span class="ru">Куда двигаться на старте карьеры</span></h3>
-  <p class="sub"><span class="en">For young adults deciding on a first move, or a next step early in their career.</span><span class="ru">Помогаю тем, кто выбирает первое место работы или думает, как развиваться на старте карьеры.</span></p>
-
-  <p class="lead"><span class="en">My field is economics, finance, business and consulting — that's where I can help most, including if you're switching into it from something else.</span><span class="ru">Я специализируюсь на экономике, финансах, бизнесе и консалтинге. В этих сферах я могу помочь эффективнее всего — в том числе если вы переходите туда из другой индустрии.</span></p>
-
-  <h4><span class="en">What we'd do</span><span class="ru">Что мы сделаем</span></h4>
-  <ul class="arrow">
-    <li><span class="en">Work out which direction fits when several look plausible.</span><span class="ru">Разберемся, какое направление выбрать, если вариантов несколько и все кажутся перспективными.</span></li>
-    <li><span class="en">Turn "I should do something" into a concrete next move.</span><span class="ru">Превратим абстрактное «надо что-то делать» в конкретный шаг.</span></li>
-    <li><span class="en">Position your experience honestly — CV and personal story.</span><span class="ru">Честно упакуем ваш опыт – резюме и личная история.</span></li>
-    <li><span class="en">Prep for behavioral interviews and landing interviews at companies.</span><span class="ru">Подготовимся к поведенческим (behavioral) интервью, чтобы уверенно проходить отбор в компании.</span></li>
-  </ul>
-
-  <div class="callout"><span class="en">I've mentored undergraduates in my HSE program for 5+ years, helped people land interviews at Russian companies, and coach for behavioral interviews — plus a postgraduate diploma in coaching.</span><span class="ru">Больше пяти лет я менторю студентов на своей программе в НИУ ВШЭ, помогаю проходить отбор в компании и готовлю к поведенческим интервью. Также у меня есть диплом НИУ ВШЭ о профессиональной переподготовке по коучингу.</span></div>
-
-  <a class="cta" href="mailto:m.mameshova@gmail.com?subject=Early-career%20advising"><span class="en">Book an intro call →</span><span class="ru">Записаться на встречу-знакомство →</span></a>
-</div></dialog>
-
-<dialog id="dlg-strategy"><div class="panel">
-  <button class="x" data-close aria-label="Close">✕</button>
-  <h3 class="dt"><span class="en">Strategy, research &amp; advising</span><span class="ru">Стратегия, исследования и консалтинг</span></h3>
-  <p class="sub"><span class="en">Decision-oriented work with a clear written output — plus a temporary hand advising on project or product management.</span><span class="ru">Аналитика для принятия решений с понятным результатом, а также экспертная поддержка в управлении проектами или продуктами.</span></p>
-
-  <h4><span class="en">What I do</span><span class="ru">Что я делаю</span></h4>
-  <ul class="arrow">
-    <li><span class="en">Growth strategy, market sizing, unit economics, financial models.</span><span class="ru">Стратегия роста, оценка объема рынка, юнит-экономика, финансовые модели.</span></li>
-    <li><span class="en">Research turned into a clear action plan.</span><span class="ru">Рыночные исследования с четкими рекомендациями.</span></li>
-    <li><span class="en">Advising a team on how to scope, sequence and run delivery.</span><span class="ru">Консультирование команд по определению рамок проекта, приоритизации задач и организации процессов.</span></li>
-  </ul>
-
-  <div class="callout"><span class="en"><b>What this isn't:</b> not a build-my-product engagement. This is a short and bounded advisory.</span><span class="ru"><b>Чего здесь нет:</b> я не берусь за полноценную разработку продукта. Это короткий, консультационный и четко ограниченный формат.</span></div>
-
-  <p class="muted-note"><span class="en">Background: strategy consulting at Deloitte (growth strategy, credit-rating prep, market sizing), founder's-associate and finance roles at earlier-stage companies, and product at an AI startup now.</span><span class="ru">Бэкграунд: стратегический консалтинг в Deloitte (стратегия роста, подготовка к кредитным рейтингам, оценка рынка), роли founder's associate и в финансах на ранних стадиях, сейчас – продукт в AI-стартапе.</span></p>
-
-  <a class="cta" href="mailto:m.mameshova@gmail.com?subject=Strategy%20%2F%20advising%20project"><span class="en">Discuss a project →</span><span class="ru">Обсудить проект →</span></a>
-</div></dialog>
-
-<dialog id="dlg-teaching"><div class="panel">
-  <button class="x" data-close aria-label="Close">✕</button>
-  <h3 class="dt"><span class="en">Teaching · research · writing</span><span class="ru">Преподавание · исследования · тексты</span></h3>
-  <p class="sub"><span class="en">Short-term collaborations I'm genuinely interested in — and the direction I'm moving toward.</span><span class="ru">Краткосрочные совместные проекты, которые мне искренне интересны — и вектор, в котором я развиваюсь.</span></p>
-
-  <h4><span class="en">Teaching</span><span class="ru">Преподавание</span></h4>
-  <p><span class="en">I've taught Development Economics to undergraduates for five years and supervise their first research projects. Earlier I taught an applied Audit and Management Accounting course (ACCA-aligned) and co-wrote its study guide.</span><span class="ru">Пять лет преподаю экономику развития студентам бакалавриата и руковожу их первыми исследовательскими работами. Ранее вела прикладные курсы по аудиту и управленческому учёту (по стандартам ACCA) и была со-автором методичек к ним.</span></p>
-  <p><span class="en">At Moscow School 1567 I designed and taught year- and semester-long CLIL courses in Mathematics and Statistics for ESL students, including building the curriculum and selecting materials.</span><span class="ru">Создавала и вела годовые и семестровые курсы по математике и статистике для студентов на английском в московской школе 1567 – включая создание программы и подбор материалов.</span></p>
-
-  <h4><span class="en">Research</span><span class="ru">Исследования</span></h4>
-  <p><span class="en">My research interests sit where economics, AI and education meet: how AI adoption is reshaping labour markets (especially junior and entry-level work); development economics as a wider field; how higher education is transforming right now; and how AI deployment lands in the countries on the receiving end of it. I bring an operator's-eye view and a vantage across the US, Russia and Kazakhstan.</span><span class="ru">Мои исследовательские интересы лежат на стыке экономики, AI и образования: как внедрение технологий меняет рынки труда (особенно стартовые позиции и работу для начинающих специалистов); экономика развития как широкое научное направление; трансформация высшего образования прямо сейчас; и то, как технологии AI приходят в развивающиеся страны. Я смотрю на эти процессы изнутри, как практик, опираясь на свой опыт в США, России и Казахстане.</span></p>
-
-  <h4><span class="en">Writing</span><span class="ru">Тексты</span></h4>
-  <p><span class="en">Clear pieces that turn scattered evidence into something you can act on.</span><span class="ru">Понятные тексты, превращающие разрозненные данные в основу для конкретных действий.</span></p>
-
-  <a class="cta" href="mailto:m.mameshova@gmail.com?subject=Teaching%20%2F%20research%20%2F%20writing"><span class="en">Get in touch →</span><span class="ru">Связаться со мной →</span></a>
-</div></dialog>
-
-<dialog id="dlg-about"><div class="panel">
-  <button class="x" data-close aria-label="Close">✕</button>
-  <h3 class="dt"><span class="en">About me</span><span class="ru">Обо мне</span></h3>
-  <p class="lead"><span class="en">One thread runs through consulting, university administration, teaching and startups: I build structure where there isn't any, and get evidence to where decisions are made. Right now that's product at an early-stage AI company.</span><span class="ru">Консалтинг, управление учебным офисом в университете, преподавание и стартапы объединяет одно: я создаю структуру там, где ее нет, и обеспечиваю данными тех, кто принимает решения. Сейчас я отвечаю за продукт в AI-стартапе на ранней стадии.</span></p>
-
-  <h4><span class="en">Career</span><span class="ru">Карьера</span></h4>
-  <ul class="tl">
-    <li><span class="yr">2025 — <span class="en">now</span><span class="ru">наст.</span></span><span><span class="en">Alobro — product, founding team</span><span class="ru">Alobro — продукт, команда основателей</span></span></li>
-    <li><span class="yr">2024 — 2026</span><span><span class="en">ivideon / Areonic, Sapar Sports — founder's associate, finance/IR</span><span class="ru">ivideon / Areonic, Sapar Sports — founder's associate, финансы/IR</span></span></li>
-    <li><span class="yr">2021 — 2024</span><span><span class="en">Deloitte — consultant → assistant manager</span><span class="ru">Deloitte — консультант → assistant manager</span></span></li>
-    <li><span class="yr">2016 — 2025</span><span><span class="en">HSE — teaching, student support &amp; admissions</span><span class="ru">НИУ ВШЭ — преподавание, поддержка студентов и приём</span></span></li>
-    <li><span class="yr">2018 — 2019</span><span><span class="en">NYU — Office of Global Services</span><span class="ru">NYU — Office of Global Services</span></span></li>
-  </ul>
-
-  <h4><span class="en">Education &amp; languages</span><span class="ru">Образование и языки</span></h4>
-  <p><span class="en">MA, New York University (Sociology &amp; Education Policy, 3.8) · BSc, University of London &amp; HSE (Accounting &amp; Finance / Economics, Upper Second) · postgraduate diploma in coaching (HSE) · Russian native, English fluent, German &amp; Japanese elementary.</span><span class="ru">Магистратура NYU (социология и образовательная политика, 3.8) · бакалавриат University of London и НИУ ВШЭ (учёт и финансы / экономика, Upper Second) · диплом НИУ ВШЭ о профессиональной переподготовке по коучингу · русский родной, английский свободно, немецкий и японский базовый.</span></p>
-
-  <h4><span class="en">Publications</span><span class="ru">Публикации</span></h4>
-  <ul class="pubs">
-    <li>
-      <a class="p-t" href="https://createdin.moscow/aki.0/default/0001/01/4f211aa2b861bf9c67a2d285165675a9d57b63c6.pdf" target="_blank" rel="noopener"><span class="en">Advertising Content Production Market Study</span><span class="ru">Исследование рынка производства рекламного контента</span></a>
-      <div class="p-d"><span class="en">Deloitte, 2022 — market sizing &amp; growth outlook for Russia's creative-content production.</span><span class="ru">Deloitte, 2022 — оценка объема и перспектив роста рынка креативного контента в России.</span></div>
-    </li>
-    <li>
-      <a class="p-t" href="https://createdin.moscow/aki.0/default/0001/01/20a2e37d1311ff81f5def3855a351116c0f99b64.pdf" target="_blank" rel="noopener"><span class="en">Contemporary Art Market Study</span><span class="ru">Исследование рынка современного искусства</span></a>
-      <div class="p-d"><span class="en">Deloitte, 2022 — analysis of Russia's contemporary-art sector for a state creative-industries program.</span><span class="ru">Deloitte, 2022 — анализ сектора современного искусства для государственной программы развития креативных индустрий.</span></div>
-    </li>
-    <li>
-      <a class="p-t" href="https://www.kommersant.ru/doc/4277500" target="_blank" rel="noopener"><span class="en">Women-CEO in Russia: Financial Performance Indicators</span><span class="ru">Женщины-руководители в России: финансовые показатели компаний</span></a>
-      <div class="p-d"><span class="en">Deloitte, 2020 — study of 224,100 firms; press: Kommersant.</span><span class="ru">Deloitte, 2020 — исследование на базе данных 224 100 фирм; публикации в СМИ: «Коммерсантъ».</span></div>
-    </li>
-    <li>
-      <a class="p-t" href="https://ru.readkong.com/page/tendencii-razvitiya-robotizacii-v-rf-deloitte-7047445" target="_blank" rel="noopener"><span class="en">Trends in Robotic Process Automation in Russia</span><span class="ru">Тенденции роботизации процессов (RPA) в России</span></a>
-      <div class="p-d"><span class="en">Deloitte, 2020 — RPA adoption, obstacles and expectations by sector.</span><span class="ru">Deloitte, 2020 — внедрение RPA, барьеры и ожидания по отраслям.</span></div>
-    </li>
-    <li>
-      <a class="p-t" href="http://web.archive.org/web/20220121060103/https://www2.deloitte.com/content/dam/Deloitte/ru/Documents/research-center/CFO-Survey-Apr-2020.pdf" target="_blank" rel="noopener"><span class="en">CFO Survey, 1H 2020</span><span class="ru">Опрос финансовых директоров (CFO Survey), I полугодие 2020</span></a>
-      <div class="p-d"><span class="en">Deloitte, 2020 (contributor) — CFO sentiment across Russian markets.</span><span class="ru">Deloitte, 2020 (соавтор) — настроения финансовых директоров на российском рынке.</span></div>
-    </li>
-  </ul>
-
-  <div class="dlg-links">
-    <a href="https://linkedin.com/in/mmameshova" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a href="#" data-cv id="cvLink"><span class="en">Download CV</span><span class="ru">Скачать резюме</span></a>
-  </div>
-</div></dialog>
+</main>
 
 <script>
   var root = document.documentElement;
@@ -528,23 +746,6 @@
     var cur = root.getAttribute('data-theme');
     var dark = cur ? cur==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
     root.setAttribute('data-theme', dark ? 'light':'dark');
-  });
-
-  function openDlg(id){ var d=document.getElementById(id); if(d && d.showModal) d.showModal(); }
-  document.querySelectorAll('[data-dialog]').forEach(function(t){
-    t.addEventListener('click', function(){ openDlg(t.getAttribute('data-dialog')); });
-    t.addEventListener('keydown', function(e){
-      if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openDlg(t.getAttribute('data-dialog')); }
-    });
-  });
-  document.querySelectorAll('dialog').forEach(function(d){
-    d.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click', function(){ d.close(); }); });
-    d.addEventListener('click', function(e){ if(e.target === d) d.close(); });
-  });
-
-  document.getElementById('cvLink').addEventListener('click', function(e){
-    if(this.getAttribute('href')==='#'){ e.preventDefault();
-      alert(root.getAttribute('data-lang')==='ru' ? 'Ссылка на резюме появится позже.' : 'CV link coming soon.'); }
   });
 </script>
 </body>
