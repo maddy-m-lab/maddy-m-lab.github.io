@@ -44,6 +44,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Golos+Text:wght@400;500;600;700&display=swap&subset=cyrillic-ext,cyrillic,latin-ext,latin" rel="stylesheet">
+
+<!-- Analytics (Umami, cookieless — no consent banner needed).
+     >>> PASTE YOUR UMAMI WEBSITE ID INTO data-website-id BELOW BEFORE UPLOADING. <<< -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="22296451-77da-45fc-a9f7-cc71d4fdc715"></script>
+
 <!--
   Madina (Maddy) Mameshova — landing page (v6, editorial "Contents page")
   Type: two-font system — Fraunces (display) + Golos Text (body, labels, native Cyrillic).
@@ -739,6 +744,7 @@
       document.querySelectorAll('[data-lang-set]').forEach(function(x){
         x.setAttribute('aria-pressed', x===b ? 'true':'false');
       });
+      track('lang-switch', { to: l });
     });
   });
 
@@ -746,7 +752,39 @@
     var cur = root.getAttribute('data-theme');
     var dark = cur ? cur==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
     root.setAttribute('data-theme', dark ? 'light':'dark');
+    track('theme-switch', { to: dark ? 'light':'dark' });
   });
+
+  // ---- analytics events ----
+  function track(name, data){ if (window.umami) window.umami.track(name, data); }
+  function sectionOf(el){ var d = el.closest('details[id]'); return d ? d.id.replace(/^s-/,'') : 'page'; }
+
+  // which service sections get opened (fires on open only)
+  document.querySelectorAll('details[id]').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (d.open) track('section-open', { section: d.id.replace(/^s-/,''), lang: root.getAttribute('data-lang') });
+    });
+  });
+
+  // link intent: bookings, email, CV, outbound
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('calendar.app.google') > -1)  track('cta-booking', { where: sectionOf(a) });
+    else if (href.indexOf('mailto:') === 0)        track('cta-email',   { where: sectionOf(a) });
+    else if (a.hasAttribute('data-cv'))            track('cv-download', { where: sectionOf(a) });
+    else if (/^https?:/.test(href) && a.host !== location.host)
+                                                   track('outbound',    { url: a.host + a.pathname });
+  });
+
+  // did they scroll as far as the contact block
+  if (window.IntersectionObserver) {
+    var ct = document.getElementById('t-contact'), fired = false;
+    if (ct) new IntersectionObserver(function(es){
+      if (es[0].isIntersecting && !fired) { fired = true; track('reached-contact'); }
+    }, { threshold: 0.4 }).observe(ct);
+  }
 </script>
 </body>
 </html>
